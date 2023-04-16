@@ -9,6 +9,15 @@ print(txt.format(hello = "Hi", student = "Kasia"))
 
 #zadanie1.2
 
-student = input("Wpisz swoje imie")
-print('Hello ' + student)
+# student = input("Wpisz swoje imie")
+# print('Hello ' + student)
+
+
+#zadanie1.3
+
+students = ["Ania", "Kuba", "Piotr", "Jan"]
+
+x = len(students)
+
+print("Liczba studentów wynosi " + str(x))
 
