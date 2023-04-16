@@ -46,3 +46,14 @@ ciag_znakow = "edbw(hdakqas(skqskahb))adwndwb(wgwidn()dsqwhjdw)"
 
 x = ciag_znakow.count("(")
 print("Liczba nawiasow otwierajacych wynosi: " + str(x))
+
+
+#zadanie1.7
+
+students = ["Anna Szczesny", "Tomasz Nijaki", "Barbara Kowalska", "Jan Niezbedny"]
+
+sorted_students = sorted(students)
+
+print("Alfabetyczna lista studentow wynosi: ")
+for student in sorted_students:
+    print(student)
