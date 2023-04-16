@@ -21,3 +21,10 @@ x = len(students)
 
 print("Liczba studentów wynosi " + str(x))
 
+
+#zadanie1.4
+
+students = ["Ania", "Kasia", "Piotr", "Tomek"]
+
+for name in students:
+    print("Hello " + name)
