@@ -28,3 +28,13 @@ students = ["Ania", "Kasia", "Piotr", "Tomek"]
 
 for name in students:
     print("Hello " + name)
+
+
+#zadanie1.5
+
+n = 3
+p = 4
+
+w = n**p
+
+print("wynik wynosi " + str(w))
