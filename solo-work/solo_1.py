@@ -38,3 +38,11 @@ p = 4
 w = n**p
 
 print("wynik wynosi " + str(w))
+
+
+#zadanie1.6
+
+ciag_znakow = "edbw(hdakqas(skqskahb))adwndwb(wgwidn()dsqwhjdw)"
+
+x = ciag_znakow.count("(")
+print("Liczba nawiasow otwierajacych wynosi: " + str(x))
