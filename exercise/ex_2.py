@@ -70,3 +70,15 @@ obwod = 2*a + 2*b
 pole = 1/2*e*f
 
 print("Obwod rombu wynosi " + str(obwod) + ", a pole wynosi " + str(pole) + ".")
+
+#rhomb
+
+a =10
+b = 15
+e = 7
+f = 10
+
+obwod = 2*a + 2*b
+pole = 1/2*e*f
+
+print("Obwod rombu wynosi " + str(obwod) + ", a pole wynosi " + str(pole) + ".")
