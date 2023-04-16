@@ -30,3 +30,15 @@ obwod = a*2 + b*2
 pole = a*b
 
 print("Obwod prostokata wynosi " + str(obwod) + ", a pole wynosi " + str(pole) + ".")
+
+
+#circle
+#importing math library
+import math
+
+r = 10
+
+obwod = 2*math.pi*r
+pole = math.pi*(r**2)
+
+print("Obwod kola wynosi " + str(obwod) + ", a pole wynosi " + str(pole) + ".")
