@@ -42,3 +42,18 @@ obwod = 2*math.pi*r
 pole = math.pi*(r**2)
 
 print("Obwod kola wynosi " + str(obwod) + ", a pole wynosi " + str(pole) + ".")
+
+#trapeze
+
+# didn't check if dimensions are possible
+a = 10
+b = 20
+c = 15
+d = 17
+
+h = 8
+
+obwod = a+b+c+d
+pole = (a+b)*h/2
+
+print("Obwod trapezu wynosi " + str(obwod) + ", a pole wynosi " + str(pole) + ".")
