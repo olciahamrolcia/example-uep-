@@ -57,3 +57,14 @@ sorted_students = sorted(students)
 print("Alfabetyczna lista studentow wynosi: ")
 for student in sorted_students:
     print(student)
+
+
+# zadanie 1.8
+
+# posortuj alfabetycznie (od nazwiska) studentow
+students = ["Anna Szczesny", "Tomasz Nijaki", "Barbara Kowalska", "Jan Niezbedny"]
+
+students.sort(key=lambda s: s.split()[1])
+print("Alfabetyczna lista studentow wynosi: ")
+for student in students:
+    print(student)
