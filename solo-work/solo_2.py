@@ -78,6 +78,8 @@ class Car:
     def __str__(self):
         return f"{self.year} {self.brand} {self.model} {self.price}"
 
+    def policz_moc
+
 car_mercedes = Car("Mercedes AMG", "2023", "GT 63s", "4.0L V8", "680hp", "$170000", "all-wheel", "9-speed automatic")
 
 print(car_mercedes)
