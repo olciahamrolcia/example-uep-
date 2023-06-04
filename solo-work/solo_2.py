@@ -78,12 +78,33 @@ class Car:
     def __str__(self):
         return f"{self.year} {self.brand} {self.model} {self.price}"
 
-    def policz_moc
+    def policz_moc(self):
+        return self.horsepower * 1.36 #z koni mechanicznych na kW
 
-car_mercedes = Car("Mercedes AMG", "2023", "GT 63s", "4.0L V8", "680hp", "$170000", "all-wheel", "9-speed automatic")
+    def wartosc_za5lat(self):
+        return self.price * 0.7
+
+    def brake(self):
+        print(f"{self.brand} {self.model}: Braking...")
+
+    def policz_zużyciePaliwa(self):
+        if self.engine == "diesel" and self.transmission == "manual":
+            return "7.5l/100km"
+        elif self.engine == "diesel" and self.transmission == "automatic":
+            return "6.5l/100km"
+        elif self.engine == "petrol" and self.transmission == "manual":
+            return "9.5l/100km"
+        elif self.engine == "petrol" and self.transmission == "automatic":
+            return "8.5l/100km"
+        else:
+            return "N/A"
+
+car_mercedes = Car("Mercedes AMG", "2023", "GT 63s", "petrol", 680, 170000, "all-wheel", "automatic")
 
 print(car_mercedes)
-
+print("Moc:", car_mercedes.policz_moc(), "kW")
+print("Wartość za 5 lat:", car_mercedes.wartosc_za5lat(), "$")
+print("Zużycie paliwa:", car_mercedes.policz_zużyciePaliwa())
 
 
 
