@@ -1,28 +1,19 @@
 class Pracownik:
-    def __init__(self, imie, nazwisko, wynagrodzenie_brutto, student=False, wiek=0, zamezny=False):
-        # default values are used when class is created without these values
+    def __init__(self, imie, nazwisko, wynagrodzenie_brutto):
         self.imie = imie
         self.nazwisko = nazwisko
         self.wynagrodzenie_brutto = wynagrodzenie_brutto
-        self.student = student
-        self.wiek = wiek
-        self.zamezny = zamezny
 
     def __str__(self):
         return "Pracownik {self.imie} {self.nazwisko}"
 
     def policz_netto(self):
-        skladka_emerytalna = self.wynagrodzenie_brutto * 0.0976  # 9,76% składki emerytalnej
-        skladka_rentowa = self.wynagrodzenie_brutto * 0.015  # 1,5% składki rentowej
-        skladka_chorobowa = self.wynagrodzenie_brutto * 0.0245  # 2,45% składki chorobowej
-
-        suma_skladek = skladka_emerytalna + skladka_rentowa + skladka_chorobowa
-
-        skladka_zdrowotna = (self.wynagrodzenie_brutto - suma_skladek)* 0.09  # 9% składki zdrowotnej po odliczeniu innych składek
-
-        zaliczka_na_podatek = (self.wynagrodzenie_brutto - suma_skladek - skladka_zdrowotna) * 0.12 - ((self.wynagrodzenie_brutto - suma_skladek - skladka_zdrowotna) * 0.12/24)  # 12% zaliczki na podatek pomniejszony o 1/24
-
-        wynagrodzenie_netto = self.wynagrodzenie_brutto - suma_skladek - skladka_zdrowotna - zaliczka_na_podatek
+        skladki_spoleczne = self.wynagrodzenie_brutto * 0.0976 + self.wynagrodzenie_brutto * 0.015 + self.wynagrodzenie_brutto * 0.0245
+        skladka_zdrowotna = (self.wynagrodzenie_brutto - skladki_spoleczne) * 0.09
+        koszty_uzyskania_przychodu = 250
+        podstawa_podatku = self.wynagrodzenie_brutto - skladki_spoleczne - skladka_zdrowotna - koszty_uzyskania_przychodu
+        zaliczka_na_podatek = (podstawa_podatku * 0.12) - 300 if podstawa_podatku > 3000 else 0
+        wynagrodzenie_netto = self.wynagrodzenie_brutto - skladki_spoleczne - skladka_zdrowotna - zaliczka_na_podatek
 
         return wynagrodzenie_netto
 
