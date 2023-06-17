@@ -9,7 +9,8 @@ class Pracownik:
 
     def policz_netto(self):
         skladki_spoleczne = self.wynagrodzenie_brutto * 0.0976 + self.wynagrodzenie_brutto * 0.015 + self.wynagrodzenie_brutto * 0.0245
-        skladka_zdrowotna = (self.wynagrodzenie_brutto - skladki_spoleczne) * 0.09
+        # 9.76% składki emerytalnej, 1.5% składki rentowej, 2.45% ubezpieczenie chorobowe
+        skladka_zdrowotna = (self.wynagrodzenie_brutto - skladki_spoleczne) * 0.09  # 9% składki zdrowotnej
         koszty_uzyskania_przychodu = 250
         podstawa_podatku = self.wynagrodzenie_brutto - skladki_spoleczne - skladka_zdrowotna - koszty_uzyskania_przychodu
         zaliczka_na_podatek = (podstawa_podatku * 0.12) - 300 if podstawa_podatku > 3000 else 0
@@ -31,33 +32,25 @@ class Pracownik:
 
         return koszt_pracodawcy
 
-    def czy_student(self):
-        return self.student
 
-    def czy_ponizej_26(self):
-        return self.wiek < 26
-
-    def czy_zamezny(self):
-        return self.zamezny
-
-    def wplyw_na_wynagrodzenie(self):
-        netto = self.policz_netto()
-
-        if self.czy_student():
-            netto += 400
-
-        if self.czy_ponizej_26():
-            netto += 300  # Dodatkowa kwota dla osób poniżej 26 roku życia
-
-        if self.czy_zamezny():
-            netto += 100
 import csv
-pracownicy = []  # z csv
-for pracownik in pracownicy:
-    print("Pracownik Jan Kowalski: ")
-    print("- pensja brutto: ")
-    print("- pensja netto: ")
-    print("- koszt pracodawcy: ")
-    print("- koszt całkowity: ")
 
-print("Suma kosztów wynosi: xxx")
+pracownicy = []
+with open('pracownicy.csv') as file:
+    reader = csv.reader(file, delimiter=';')
+    for row in reader:
+        pracownicy.append(Pracownik(row[0], row[1], float(row[2])))
+
+pracownicy_koszt = 0
+
+# Wyświetlanie informacji dla każdego pracownika
+for pracownik in pracownicy:
+    print(f"Pracownik {pracownik.imie} {pracownik.nazwisko}:")
+    print("- pensja brutto:", pracownik.wynagrodzenie_brutto)
+    print("- pensja netto:", pracownik.policz_netto())
+    print("- koszt pracodawcy:", pracownik.oblicz_koszty())
+    print("- koszt całkowity:", pracownik.wynagrodzenie_brutto + pracownik.oblicz_koszty())
+
+    pracownicy_koszt += pracownik.wynagrodzenie_brutto + pracownik.oblicz_koszty()
+
+print("Suma kosztów wynosi:", pracownicy_koszt)
